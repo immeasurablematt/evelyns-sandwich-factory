@@ -3,6 +3,10 @@
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Evelyn's Sandwich Factory",
+  "image": "https://immeasurablematt.github.io/evelyns-sandwich-factory/evelyn-portrait.png",
+  "logo": "https://immeasurablematt.github.io/evelyns-sandwich-factory/logo.png",
+  "foundingDate": "2001",
+  "slogan": "No cold cuts. Ever.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "15 Niagara Street",
@@ -17,6 +21,6 @@
     "Mo-Fr 11:00-17:00",
     "Sa 11:00-14:00"
   ],
-  "description": "Welland's favourite sandwich shop. We roast a fresh turkey every single day \u2014 no cold cuts, ever. Real food made with real care."
+  "description": "Welland's favourite sandwich shop since 2001. We roast a fresh turkey every single day — no cold cuts, ever. Real food made with real care."
 }
 </script>

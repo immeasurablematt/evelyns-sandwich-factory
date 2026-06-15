@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-version="1.1">
+<html lang="en" data-version="2.0">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evelyn's Sandwich Factory — Welland, ON</title>
-  <meta name="description" content="Real roasted turkey. Fresh homemade sandwiches. 4.9★ on Google. Open Mon–Fri 11am–5pm, Sat 11am–2pm. 15 Niagara St, Welland. (905) 734-9316.">
+  <title>Evelyn's Sandwich Factory — Real Roasted Turkey · Welland, ON · Est. 2001</title>
+  <meta name="description" content="Real roasted turkey. Fresh homemade sandwiches since 2001. 4.9★ on Google. Open Mon–Fri 11am–5pm, Sat 11am–2pm. 15 Niagara St, Welland. (905) 734-9316.">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#15120C">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Evelyn's Sandwich Factory — Welland, ON">
-  <meta property="og:description" content="We roast a turkey every single day. No cold cuts. Ever. Welland's favourite sandwich shop.">
-  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Evelyn's Sandwich Factory — Welland, ON · Est. 2001">
+  <meta property="og:description" content="We roast a turkey every single day. No cold cuts. Ever. Welland's favourite sandwich shop since 2001.">
+  <meta property="og:type" content="restaurant.restaurant">
+  <meta property="og:image" content="https://immeasurablematt.github.io/evelyns-sandwich-factory/logo.png">
 
   <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
@@ -18,6 +23,10 @@
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "Evelyn's Sandwich Factory",
+    "image": "https://immeasurablematt.github.io/evelyns-sandwich-factory/evelyn-portrait.png",
+    "logo": "https://immeasurablematt.github.io/evelyns-sandwich-factory/logo.png",
+    "foundingDate": "2001",
+    "slogan": "No cold cuts. Ever.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "15 Niagara Street",
@@ -36,33 +45,43 @@
       "ratingValue": "4.9",
       "reviewCount": "341"
     },
-    "description": "Welland's favourite sandwich shop. We roast a fresh turkey every single day — no cold cuts, ever. Real food made with real care."
+    "description": "Welland's favourite sandwich shop since 2001. We roast a fresh turkey every single day — no cold cuts, ever. Real food made with real care."
   }
   </script>
 
-  <!-- Fonts -->
+  <!-- Fonts: Anton (condensed display, echoes the logo lettering) + Plus Jakarta Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     /* ── Reset ──────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:      #FAF7F0;
-      --cream-mid:  #F2EDE3;
-      --cream-dark: #E4DCCF;
-      --green:      #1E3A2F;
-      --green-mid:  #2D5040;
-      --terra:      #C4602A;
-      --gold:       #D4A034;
-      --ink:        #1A1A18;
-      --ink-mid:    #3D3D3A;
-      --ink-light:  #6B6B67;
+      /* Seeded from the logo: warm black banners, gold filigree, cream paper */
+      --ink:        #15120C;
+      --ink-soft:   #211C12;
+      --charcoal:   #2A2418;
 
-      --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --serif: 'Fraunces', Georgia, serif;
+      --gold:       #E2A92E;   /* the logo gold */
+      --gold-bright:#F4C552;
+      --gold-deep:  #A9781A;
+
+      --cream:      #FBF5E8;
+      --cream-mid:  #F3E9D4;
+      --cream-dark: #E6D7B7;
+
+      --green:      #1F3D2B;   /* deep forest, from Evelyn's photo */
+      --green-mid:  #2E5A3E;
+      --tomato:     #C13B2A;   /* from the sandwich */
+
+      --text:       #221E16;
+      --text-mid:   #4A4336;
+      --text-soft:  #756B58;
+
+      --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --display: 'Anton', 'Plus Jakarta Sans', sans-serif;
       --ease: cubic-bezier(0.32, 0.72, 0, 1);
       --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
@@ -72,71 +91,120 @@
     body {
       font-family: var(--sans);
       background: var(--cream);
-      color: var(--ink);
+      color: var(--text);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+    }
+
+    /* ── Shared brand bits ──────────────────── */
+    .display {
+      font-family: var(--display);
+      font-weight: 400;          /* Anton ships a single heavy weight */
+      text-transform: uppercase;
+      letter-spacing: 0.005em;
+      line-height: 0.95;
+    }
+
+    /* Gold filigree-style divider, echoing the EST. 2001 underline */
+    .flourish {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      width: fit-content;
+    }
+    .flourish span {
+      height: 2px;
+      width: 2.75rem;
+      background: linear-gradient(90deg, transparent, var(--gold));
+      border-radius: 2px;
+    }
+    .flourish span:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+    .flourish i {
+      width: 7px; height: 7px;
+      transform: rotate(45deg);
+      background: var(--gold);
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+    .flourish.center { margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
     }
 
     /* ── Floating Nav ───────────────────────── */
     nav {
       position: fixed;
-      top: 1.25rem;
+      top: 1.1rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 100;
       width: max-content;
-      max-width: calc(100vw - 2rem);
+      max-width: calc(100vw - 1.5rem);
     }
 
     .nav-pill {
-      background: rgba(30, 58, 47, 0.94);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(21, 18, 12, 0.92);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(226, 169, 46, 0.22);
       border-radius: 9999px;
-      padding: 0.6rem 0.6rem 0.6rem 1.5rem;
+      padding: 0.5rem 0.5rem 0.5rem 1.4rem;
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.75rem;
+      box-shadow: 0 12px 40px -16px rgba(0,0,0,0.5);
     }
 
-    .nav-logo {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 0.95rem;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-    }
-
-    .nav-links {
+    .nav-mark {
       display: flex;
-      gap: 1.5rem;
-      list-style: none;
+      align-items: baseline;
+      gap: 0.5rem;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .nav-mark b {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      text-transform: uppercase;
+    }
+    .nav-mark b em { color: var(--gold); font-style: normal; }
+    .nav-mark small {
+      font-size: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(251,245,232,0.45);
     }
 
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
     .nav-links a {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(250,247,240,0.6);
+      color: rgba(251,245,232,0.6);
       text-decoration: none;
       transition: color 350ms var(--ease);
     }
-
-    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover { color: var(--gold-bright); }
 
     .nav-cta {
-      background: var(--terra);
-      color: white;
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.6rem 1rem;
+      padding: 0.55rem 0.7rem 0.55rem 1rem;
       border-radius: 9999px;
       display: inline-flex;
       align-items: center;
@@ -144,424 +212,343 @@
       white-space: nowrap;
       transition: all 400ms var(--ease);
     }
-
-    .nav-cta:hover { background: #d47240; transform: scale(1.04); }
-
+    .nav-cta:hover { background: var(--gold-bright); transform: scale(1.04); }
     .nav-cta-arrow {
-      width: 1.4rem;
-      height: 1.4rem;
+      width: 1.35rem; height: 1.35rem;
       border-radius: 9999px;
-      background: rgba(255,255,255,0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
+      background: rgba(21,18,12,0.16);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.68rem;
       transition: transform 300ms var(--spring);
     }
+    .nav-cta:hover .nav-cta-arrow { transform: translate(1px,-1px) scale(1.1); }
 
-    .nav-cta:hover .nav-cta-arrow { transform: translate(1px, -1px) scale(1.1); }
+    /* ── Buttons ────────────────────────────── */
+    .btn {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 0.9rem 0.9rem 1.45rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      transition: all 460ms var(--ease);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+    }
+    .btn-gold { background: var(--gold); color: var(--ink); }
+    .btn-gold:hover { background: var(--gold-bright); transform: scale(1.03); }
+    .btn-ink { background: var(--ink); color: var(--cream); }
+    .btn-ink:hover { background: var(--charcoal); transform: scale(1.03); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--cream-dark);
+      padding: 0.9rem 1.4rem;
+    }
+    .btn-ghost:hover { border-color: var(--ink); transform: scale(1.03); }
+    .btn-icon {
+      width: 1.7rem; height: 1.7rem;
+      border-radius: 9999px;
+      background: rgba(21,18,12,0.16);
+      display: flex; align-items: center; justify-content: center;
+      font-style: normal; font-size: 0.8rem;
+      transition: transform 350ms var(--spring);
+    }
+    .btn-ink .btn-icon { background: rgba(255,255,255,0.14); }
+    .btn:hover .btn-icon { transform: translate(2px,-1px) scale(1.12); }
 
     /* ── Hero ───────────────────────────────── */
     .hero {
       min-height: 100dvh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8.5rem 1.5rem 5rem;
       position: relative;
       overflow: hidden;
+      background: radial-gradient(125% 90% at 50% 8%, #FFFDF7 0%, var(--cream) 42%, var(--cream-mid) 100%);
     }
 
-    /* Subtle warm ambient glow */
+    /* Sunburst rays — lifted from Evelyn's photo */
     .hero::before {
       content: '';
       position: absolute;
-      top: -15rem;
-      right: -10rem;
-      width: 55rem;
-      height: 55rem;
-      border-radius: 9999px;
-      background: radial-gradient(circle, rgba(212,160,52,0.07) 0%, transparent 65%);
+      top: -42vmax; left: 50%;
+      width: 130vmax; height: 130vmax;
+      transform: translateX(-50%);
+      background: repeating-conic-gradient(from 0deg at 50% 50%,
+        rgba(226,169,46,0.085) 0deg 5deg,
+        transparent 5deg 11deg);
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 58%);
+      mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 58%);
+      pointer-events: none;
+    }
+    /* Warm glow behind the logo */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 14%; left: 50%;
+      width: 46rem; height: 46rem;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(226,169,46,0.20) 0%, transparent 62%);
       pointer-events: none;
     }
 
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 8rem 3rem 5.5rem 4.5rem;
-      position: relative;
-      z-index: 2;
-    }
+    .hero-inner { position: relative; z-index: 2; max-width: 880px; width: 100%; }
 
-    .eyebrow {
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: var(--cream-mid);
-      border: 1px solid var(--cream-dark);
-      border-radius: 9999px;
-      padding: 0.3rem 0.85rem;
-      font-size: 0.6rem;
+      gap: 0.55rem;
+      font-size: 0.66rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--green);
-      width: fit-content;
-      margin-bottom: 1.75rem;
+      color: var(--gold-deep);
+      margin-bottom: 2rem;
     }
+    .hero-tag .star { color: var(--gold); letter-spacing: -0.1em; font-size: 0.8rem; }
 
-    .eyebrow-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 9999px;
-      background: var(--terra);
+    .hero-logo {
+      width: min(540px, 84%);
+      height: auto;
+      margin: 0 auto 2.25rem;
+      display: block;
+      filter: drop-shadow(0 18px 40px rgba(21,18,12,0.16));
     }
 
     .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 5vw, 5.25rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -0.025em;
+      font-size: clamp(2.4rem, 6.4vw, 4.75rem);
       color: var(--ink);
-      margin-bottom: 1.75rem;
+      margin: 1.75rem auto 1.5rem;
+      max-width: 16ch;
     }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--green);
-    }
+    .hero-title em { font-style: normal; color: var(--tomato); }
 
     .hero-sub {
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 1.02rem;
       line-height: 1.7;
-      color: var(--ink-mid);
-      max-width: 34ch;
-      margin-bottom: 2.5rem;
+      color: var(--text-mid);
+      max-width: 46ch;
+      margin: 0 auto 2.5rem;
     }
 
     .hero-actions {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      justify-content: center;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .btn-primary {
-      background: var(--green);
-      color: var(--cream);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 0.85rem 0.85rem 1.4rem;
-      border-radius: 9999px;
+    .rating-inline {
       display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
-      transition: all 500ms var(--ease);
-    }
-
-    .btn-primary:hover { background: var(--green-mid); transform: scale(1.03); }
-
-    .btn-icon {
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 9999px;
-      background: rgba(255,255,255,0.14);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-style: normal;
-      font-size: 0.85rem;
-      transition: transform 350ms var(--spring);
-    }
-
-    .btn-primary:hover .btn-icon { transform: translate(2px, -1px) scale(1.12); }
-
-    .rating-inline {
-      display: flex;
-      align-items: center;
       gap: 0.45rem;
-      font-size: 0.8rem;
-      color: var(--ink-light);
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-top: 1.85rem;
     }
+    .rating-inline .stars { color: var(--gold); letter-spacing: -0.04em; }
+    .rating-inline strong { color: var(--text); }
 
-    .stars { color: var(--gold); letter-spacing: -0.04em; }
-
-    /* Hero right: photo */
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Outer photo bezel — double-bezel technique */
-    .photo-shell {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--cream-mid);
-      border: 1px solid var(--cream-dark);
-      border-radius: 2.25rem;
-      padding: 0.45rem;
-      width: 72%;
-      max-width: 400px;
-      aspect-ratio: 3 / 4;
-    }
-
-    .photo-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: calc(2.25rem - 0.25rem);
-      overflow: hidden;
-      box-shadow: inset 0 1px 1px rgba(255,255,255,0.6);
-    }
-
-    .photo-inner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 10%;
-    }
-
-    /* Floating badge — "4.9★" card overlapping left edge */
-    .hero-badge {
-      position: absolute;
-      left: calc(28% - 5.5rem);
-      top: 32%;
-      background: var(--green);
-      border-radius: 1.5rem;
-      padding: 1.1rem 1.3rem;
-      color: var(--cream);
-      width: 9.5rem;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .badge-num {
-      font-family: var(--serif);
-      font-size: 2.25rem;
-      font-weight: 600;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-
-    .badge-label {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.6;
-    }
-
-    .badge-sub {
-      font-size: 0.7rem;
-      opacity: 0.5;
-      margin-top: 0.15rem;
-    }
-
-    /* "Fresh Roasted Daily" pill floating at bottom */
-    .hero-freshpill {
-      position: absolute;
-      bottom: 4rem;
-      left: calc(28% - 3.5rem);
-      background: var(--terra);
-      color: white;
-      border-radius: 9999px;
-      padding: 0.5rem 1.1rem;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* ── Promise ────────────────────────────── */
+    /* ── Promise band ───────────────────────── */
     .promise {
       background: var(--green);
       color: var(--cream);
-      padding: 8rem 4.5rem;
+      padding: 7.5rem 4.5rem;
       position: relative;
       overflow: hidden;
     }
-
     .promise::before {
       content: '';
       position: absolute;
-      bottom: -12rem;
-      left: -8rem;
-      width: 40rem;
-      height: 40rem;
-      border-radius: 9999px;
-      background: radial-gradient(circle, rgba(212,160,52,0.07) 0%, transparent 70%);
+      top: -45vmax; left: 50%;
+      width: 120vmax; height: 120vmax;
+      transform: translateX(-50%);
+      background: repeating-conic-gradient(from 0deg at 50% 50%,
+        rgba(226,169,46,0.07) 0deg 5deg, transparent 5deg 11deg);
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 60%);
+      mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 60%);
       pointer-events: none;
     }
-
     .promise-inner {
-      max-width: 1300px;
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 6rem;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 5.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .promise-eyebrow {
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem;
+    }
+    .promise-title {
+      font-size: clamp(2.3rem, 4.2vw, 4rem);
+      color: var(--cream);
+      margin-bottom: 1.75rem;
+    }
+    .promise-title em { font-style: normal; color: var(--gold); }
+    .promise-body {
+      font-size: 0.98rem; line-height: 1.85;
+      color: rgba(251,245,232,0.74);
+      max-width: 46ch;
+    }
+
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat {
+      background: rgba(251,245,232,0.04);
+      border: 1px solid rgba(226,169,46,0.18);
+      border-radius: 1.5rem;
+      padding: 1.7rem 1.5rem;
+      transition: all 500ms var(--ease);
+    }
+    .stat:hover { background: rgba(226,169,46,0.08); transform: translateY(-3px); }
+    .stat-num {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 3.1rem;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(251,245,232,0.55);
+      line-height: 1.4;
+    }
+
+    /* ── Meet Evelyn ────────────────────────── */
+    .evelyn {
+      padding: 8rem 4.5rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .evelyn-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      gap: 5rem;
       align-items: center;
     }
 
-    .promise-eyebrow {
-      font-size: 0.6rem;
-      font-weight: 700;
+    /* Portrait frame — double-bezel, gold edge */
+    .portrait-shell {
+      background: linear-gradient(160deg, var(--cream-mid), var(--cream-dark));
+      border: 1px solid var(--gold);
+      border-radius: 2.25rem;
+      padding: 0.5rem;
+      box-shadow: 0 30px 70px -28px rgba(31,61,43,0.4);
+      position: relative;
+    }
+    .portrait-inner {
+      border-radius: calc(2.25rem - 0.35rem);
+      overflow: hidden;
+      aspect-ratio: 1122 / 1402;
+    }
+    .portrait-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .portrait-badge {
+      position: absolute;
+      bottom: -1.1rem; right: 1.5rem;
+      background: var(--ink);
+      color: var(--gold);
+      font-family: var(--display);
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;
+      padding: 0.7rem 1.2rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(226,169,46,0.4);
+      box-shadow: 0 14px 30px -12px rgba(21,18,12,0.5);
+    }
+
+    .evelyn-title {
+      font-size: clamp(2.1rem, 3.6vw, 3.5rem);
+      color: var(--ink);
+      margin: 1.4rem 0 1.6rem;
+    }
+    .evelyn-title em { font-style: normal; color: var(--tomato); }
+    .evelyn-body {
+      font-size: 0.98rem; line-height: 1.85; color: var(--text-mid);
+      max-width: 50ch; margin-bottom: 1.1rem;
+    }
+    .evelyn-sign {
+      font-family: var(--display);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-size: 1.35rem;
+      color: var(--green);
+      margin-top: 1.75rem;
+    }
+    .evelyn-sign small {
+      display: block;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.66rem;
       letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(250,247,240,0.4);
-      margin-bottom: 1.25rem;
-    }
-
-    .promise-title {
-      font-family: var(--serif);
-      font-size: clamp(2.25rem, 3.5vw, 3.75rem);
-      font-weight: 300;
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-      margin-bottom: 1.75rem;
-    }
-
-    .promise-title em { font-style: italic; color: var(--gold); }
-
-    .promise-body {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: rgba(250,247,240,0.7);
-      max-width: 44ch;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .stat-shell {
-      background: rgba(250,247,240,0.05);
-      border: 1px solid rgba(250,247,240,0.1);
-      border-radius: 1.75rem;
-      padding: 0.35rem;
-      transition: all 500ms var(--ease);
-    }
-
-    .stat-shell:hover {
-      background: rgba(250,247,240,0.09);
-      transform: translateY(-2px);
-    }
-
-    .stat-inner {
-      background: rgba(250,247,240,0.03);
-      border-radius: calc(1.75rem - 0.2rem);
-      padding: 1.6rem 1.5rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-    }
-
-    .stat-num {
-      font-family: var(--serif);
-      font-size: 3rem;
-      font-weight: 600;
-      line-height: 1;
-      color: var(--cream);
-      margin-bottom: 0.4rem;
-    }
-
-    .stat-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(250,247,240,0.45);
+      color: var(--text-soft);
+      margin-top: 0.3rem;
     }
 
     /* ── Menu ───────────────────────────────── */
-    .menu {
-      padding: 8rem 4.5rem;
-    }
+    .menu { padding: 8rem 4.5rem; background: var(--cream-mid); }
+    .menu-inner { max-width: 1240px; margin: 0 auto; }
 
-    .menu-inner { max-width: 1300px; margin: 0 auto; }
-
-    .section-hd {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
-    }
-
+    .section-hd { margin-bottom: 3.5rem; }
     .section-eyebrow {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--terra);
-      margin-bottom: 0.6rem;
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.9rem;
     }
+    .section-title { font-size: clamp(2.1rem, 3.4vw, 3.4rem); color: var(--ink); }
+    .section-title em { font-style: normal; color: var(--tomato); }
 
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 300;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-    }
-
-    .section-title em { font-style: italic; color: var(--green); }
-
-    /* Asymmetric bento grid */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 1.25rem;
+      gap: 1.1rem;
     }
-
-    /* Card shells — outer bezel */
-    .card-shell {
-      border-radius: 2rem;
-      padding: 0.4rem;
-      transition: all 600ms var(--ease);
-    }
-
-    .card-shell:hover { transform: translateY(-3px); }
-
-    .card-shell.light {
-      background: var(--cream-mid);
-      border: 1px solid var(--cream-dark);
-    }
-
-    .card-shell.light:hover {
-      box-shadow: 0 24px 64px -12px rgba(30,58,47,0.1);
-    }
-
-    .card-shell.dark {
-      background: rgba(30,58,47,0.92);
-      border: 1px solid rgba(30,58,47,0.5);
-    }
-
-    .card-shell.dark:hover {
-      box-shadow: 0 24px 64px -12px rgba(30,58,47,0.35);
-    }
-
-    /* Card inner core */
     .card {
-      border-radius: calc(2rem - 0.25rem);
-      padding: 2rem 2rem 2.25rem;
+      border-radius: 1.75rem;
+      padding: 2.1rem 2.1rem 2.3rem;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      transition: all 500ms var(--ease);
+      border: 1px solid transparent;
     }
-
-    .card-shell.light .card {
+    .card:hover { transform: translateY(-4px); }
+    .card.light {
       background: var(--cream);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+      border-color: var(--cream-dark);
     }
-
-    .card-shell.dark .card {
+    .card.light:hover { box-shadow: 0 26px 60px -20px rgba(31,61,43,0.22); border-color: var(--gold); }
+    .card.dark {
       background: var(--green);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      border-color: rgba(226,169,46,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .card.dark:hover { box-shadow: 0 26px 60px -18px rgba(31,61,43,0.5); }
+    .card.dark::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -20%;
+      width: 24rem; height: 24rem;
+      background: radial-gradient(circle, rgba(226,169,46,0.14), transparent 65%);
+      pointer-events: none;
     }
 
     .span-7 { grid-column: span 7; }
@@ -569,290 +556,151 @@
     .span-4 { grid-column: span 4; }
     .span-8 { grid-column: span 8; }
 
-    .card-emoji { font-size: 2.25rem; margin-bottom: 0.25rem; }
-
+    .card-emoji { font-size: 2.2rem; position: relative; }
     .card-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      border-radius: 9999px;
-      padding: 0.2rem 0.7rem;
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      width: fit-content;
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      border-radius: 9999px; padding: 0.25rem 0.75rem;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; width: fit-content; position: relative;
     }
-
-    .card-shell.light .card-chip {
-      background: var(--cream-mid);
-      border: 1px solid var(--cream-dark);
-      color: var(--terra);
-    }
-
-    .card-shell.dark .card-chip {
-      background: rgba(250,247,240,0.1);
-      border: 1px solid rgba(250,247,240,0.12);
-      color: rgba(250,247,240,0.75);
-    }
+    .card.light .card-chip { background: var(--cream-mid); border: 1px solid var(--cream-dark); color: var(--tomato); }
+    .card.dark .card-chip { background: rgba(226,169,46,0.16); border: 1px solid rgba(226,169,46,0.3); color: var(--gold-bright); }
 
     .card-name {
-      font-family: var(--serif);
-      font-size: clamp(1.3rem, 1.8vw, 1.9rem);
+      font-family: var(--display);
       font-weight: 400;
-      letter-spacing: -0.015em;
-      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      line-height: 0.98;
+      font-size: clamp(1.5rem, 2.1vw, 2.15rem);
+      position: relative;
     }
+    .card.light .card-name { color: var(--ink); }
+    .card.dark .card-name { color: var(--cream); }
 
-    .card-shell.light .card-name { color: var(--ink); }
-    .card-shell.dark .card-name  { color: var(--cream); }
-
-    .card-desc {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      max-width: 38ch;
-    }
-
-    .card-shell.light .card-desc { color: var(--ink-light); }
-    .card-shell.dark .card-desc  { color: rgba(250,247,240,0.65); }
+    .card-desc { font-size: 0.86rem; line-height: 1.7; max-width: 40ch; position: relative; }
+    .card.light .card-desc { color: var(--text-soft); }
+    .card.dark .card-desc { color: rgba(251,245,232,0.7); }
 
     .card-price {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-top: auto;
-      padding-top: 0.5rem;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.4rem;
+      letter-spacing: 0.02em;
+      margin-top: auto; padding-top: 0.65rem;
+      position: relative;
     }
-
-    .card-shell.light .card-price { color: var(--green); }
-    .card-shell.dark .card-price  { color: var(--gold); }
+    .card.light .card-price { color: var(--green); }
+    .card.dark .card-price { color: var(--gold); }
 
     /* ── Visit ──────────────────────────────── */
-    .visit {
-      padding: 8rem 4.5rem;
-      background: var(--cream-mid);
-    }
-
+    .visit { padding: 8rem 4.5rem; background: var(--cream); }
     .visit-inner {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: 5rem;
-      align-items: start;
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.25fr; gap: 4.5rem; align-items: start;
     }
-
-    .visit-col { display: flex; flex-direction: column; gap: 1.25rem; }
+    .visit-col { display: flex; flex-direction: column; gap: 1.1rem; }
 
     .info-shell {
-      background: var(--cream);
+      background: var(--cream-mid);
       border: 1px solid var(--cream-dark);
-      border-radius: 1.5rem;
-      padding: 1.5rem 1.75rem;
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.7rem;
+      transition: border-color 350ms var(--ease);
     }
-
+    .info-shell:hover { border-color: var(--gold); }
     .info-label {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 0.65rem;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.6rem;
     }
-
-    .info-value {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      font-weight: 400;
-      line-height: 1.5;
-      color: var(--ink);
-    }
-
-    .info-value a {
-      color: var(--green);
-      text-decoration: none;
-      transition: color 300ms var(--ease);
-    }
-
-    .info-value a:hover { color: var(--green-mid); }
-
-    .hours-list { display: flex; flex-direction: column; gap: 0; }
+    .info-value { font-size: 1.05rem; font-weight: 500; line-height: 1.5; color: var(--text); }
+    .info-value a { color: var(--green); text-decoration: none; transition: color 300ms var(--ease); }
+    .info-value a:hover { color: var(--tomato); }
 
     .hours-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.88rem;
-      padding: 0.5rem 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.9rem; padding: 0.5rem 0;
       border-bottom: 1px solid var(--cream-dark);
     }
-
     .hours-row:last-child { border-bottom: none; }
+    .hours-day { font-weight: 600; color: var(--text); }
+    .hours-time { color: var(--green); font-weight: 700; font-size: 0.85rem; }
+    .hours-closed { color: var(--text-soft); font-size: 0.85rem; }
 
-    .hours-day { font-weight: 500; color: var(--ink); }
-    .hours-time { color: var(--green); font-weight: 600; font-size: 0.83rem; }
-    .hours-closed { color: var(--ink-light); font-size: 0.83rem; }
-
-    /* Map double-bezel */
     .map-shell {
-      background: var(--cream);
+      background: var(--cream-mid);
       border: 1px solid var(--cream-dark);
-      border-radius: 2.25rem;
-      padding: 0.45rem;
-      height: 440px;
+      border-radius: 2rem;
+      padding: 0.5rem;
+      height: 460px;
     }
-
-    .map-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: calc(2.25rem - 0.25rem);
-      overflow: hidden;
-    }
-
-    .map-inner iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
+    .map-inner { width: 100%; height: 100%; border-radius: calc(2rem - 0.35rem); overflow: hidden; }
+    .map-inner iframe { width: 100%; height: 100%; border: 0; display: block; }
 
     /* ── Footer ─────────────────────────────── */
-    footer {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 4.5rem 4.5rem 3rem;
-    }
-
-    .footer-inner { max-width: 1300px; margin: 0 auto; }
-
+    footer { background: var(--ink); color: var(--cream); padding: 5rem 4.5rem 2.75rem; }
+    .footer-inner { max-width: 1240px; margin: 0 auto; }
     .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(250,247,240,0.08);
-      margin-bottom: 2rem;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem;
+      padding-bottom: 3rem; border-bottom: 1px solid rgba(226,169,46,0.18); margin-bottom: 2rem;
     }
-
-    .footer-brand {
-      font-family: var(--serif);
-      font-size: 1.9rem;
-      font-weight: 300;
-      letter-spacing: -0.015em;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-tag {
-      font-size: 0.82rem;
-      color: rgba(250,247,240,0.45);
-      line-height: 1.6;
-      max-width: 28ch;
-    }
-
-    .footer-cols {
-      display: flex;
-      gap: 4rem;
-      flex-shrink: 0;
-    }
-
+    .footer-logo { width: 230px; max-width: 60vw; height: auto; margin-bottom: 1.1rem; }
+    .footer-tag { font-size: 0.84rem; color: rgba(251,245,232,0.5); line-height: 1.6; max-width: 30ch; }
+    .footer-cols { display: flex; gap: 4rem; flex-shrink: 0; }
     .footer-col h4 {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(250,247,240,0.35);
-      margin-bottom: 1rem;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
     }
-
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-
-    .footer-col a {
-      font-size: 0.85rem;
-      color: rgba(250,247,240,0.65);
-      text-decoration: none;
-      transition: color 300ms var(--ease);
-    }
-
-    .footer-col a:hover { color: var(--cream); }
-
+    .footer-col a, .footer-col span { font-size: 0.86rem; color: rgba(251,245,232,0.62); text-decoration: none; transition: color 300ms var(--ease); }
+    .footer-col a:hover { color: var(--gold-bright); }
     .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.73rem;
-      color: rgba(250,247,240,0.3);
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      font-size: 0.74rem; color: rgba(251,245,232,0.34);
     }
 
-    /* ── Scroll reveal ───────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(2.5rem);
-      transition: opacity 850ms var(--ease), transform 850ms var(--ease);
-    }
-
+    /* ── Scroll reveal ──────────────────────── */
+    .reveal { opacity: 0; transform: translateY(2.25rem); transition: opacity 850ms var(--ease), transform 850ms var(--ease); }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
-    /* Hero entry animations */
-    .a1 { animation: fadeUp 800ms 100ms var(--ease) both; }
-    .a2 { animation: fadeUp 900ms 260ms var(--ease) both; }
-    .a3 { animation: fadeUp 900ms 420ms var(--ease) both; }
-    .a4 { animation: fadeUp 900ms 580ms var(--ease) both; }
-    .a5 { animation: fadeUp 1000ms 320ms var(--ease) both; }
-    .a6 { animation: fadeUp 900ms 560ms var(--ease) both; }
-    .a7 { animation: fadeUp 900ms 700ms var(--ease) both; }
+    .a1 { animation: fadeUp 800ms 80ms var(--ease) both; }
+    .a2 { animation: fadeUp 900ms 240ms var(--ease) both; }
+    .a3 { animation: fadeUp 900ms 400ms var(--ease) both; }
+    .a4 { animation: fadeUp 900ms 560ms var(--ease) both; }
+    .a5 { animation: fadeUp 900ms 700ms var(--ease) both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(1.6rem); } to { opacity: 1; transform: translateY(0); } }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(1.75rem); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
 
     /* ── Mobile ─────────────────────────────── */
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: unset;
-      }
+      .nav-links { display: none; }
+      .nav-pill { padding: 0.45rem 0.45rem 0.45rem 1.1rem; gap: 0.9rem; }
+      .nav-mark small { display: none; }
 
-      .hero-right {
-        height: 60dvh;
-        order: -1;
-      }
-
-      .photo-shell {
-        right: 1.25rem;
-        bottom: 1rem;
-        width: 62%;
-      }
-
-      .hero-badge { display: none; }
-      .hero-freshpill { left: auto; right: calc(62% + 1.5rem); bottom: 2rem; font-size: 0.6rem; }
-
-      .hero-left {
-        padding: 3rem 1.5rem 4.5rem;
-        justify-content: flex-start;
-      }
+      .hero { padding: 7.5rem 1.25rem 4.5rem; }
+      .hero-title { margin-top: 1.4rem; }
 
       .promise { padding: 5rem 1.5rem; }
-      .promise-inner { grid-template-columns: 1fr; gap: 3.5rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .promise-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+      .evelyn { padding: 5rem 1.5rem; }
+      .evelyn-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+      .portrait-shell { max-width: 360px; margin: 0 auto; }
 
       .menu { padding: 5rem 1.5rem; }
       .menu-grid { display: flex; flex-direction: column; }
 
       .visit { padding: 5rem 1.5rem; }
       .visit-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .map-shell { height: 300px; }
+      .map-shell { height: 320px; }
 
       footer { padding: 4rem 1.5rem 2.5rem; }
       .footer-top { flex-direction: column; gap: 2.5rem; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
-
-      .nav-links { display: none; }
-      .nav-pill { padding: 0.55rem 0.55rem 0.55rem 1.25rem; gap: 1rem; }
-
-      .section-hd { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -861,10 +709,14 @@
 <!-- ── Nav ──────────────────────────────────── -->
 <nav aria-label="Main navigation">
   <div class="nav-pill">
-    <span class="nav-logo">Evelyn's Sandwich Factory</span>
+    <a href="#top" class="nav-mark" aria-label="Evelyn's Sandwich Factory home">
+      <b>Evelyn<em>'s</em></b>
+      <small>Sandwich Factory</small>
+    </a>
     <ul class="nav-links" role="list">
       <li><a href="#menu">Menu</a></li>
-      <li><a href="#visit">Visit Us</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#visit">Visit</a></li>
     </ul>
     <a href="tel:9057349316" class="nav-cta" aria-label="Call us at 905 734 9316">
       Call to Order
@@ -874,171 +726,163 @@
 </nav>
 
 <!-- ── Hero ─────────────────────────────────── -->
-<section class="hero" aria-label="Welcome">
-
-  <div class="hero-left">
-    <div class="eyebrow a1" aria-hidden="true">
-      <span class="eyebrow-dot"></span>
-      Welland's Favourite Sandwich Shop
+<header class="hero" id="top" aria-label="Welcome">
+  <div class="hero-inner">
+    <div class="hero-tag a1">
+      <span class="star" aria-hidden="true">★</span> Welland, Ontario · Est. 2001
     </div>
 
-    <h1 class="hero-title a2">
-      Real Turkey.<br>
-      <em>Real Love.</em><br>
-      Real Welland.
+    <img class="hero-logo a2" src="logo.png" width="1537" height="1023"
+         alt="Evelyn's Sandwich Factory — established 2001" loading="eager" fetchpriority="high">
+
+    <h1 class="hero-title display a3">
+      Real roasted turkey. <em>Never</em> a cold cut.
     </h1>
 
-    <p class="hero-sub a3">
-      We roast a fresh turkey every single day. No cold cuts.
-      No shortcuts. Just the sandwich you'll be thinking about tomorrow.
+    <p class="hero-sub a4">
+      We roast a fresh turkey every single morning and carve it by hand —
+      the sandwich Welland has lined up for since 2001.
     </p>
 
-    <div class="hero-actions a4">
-      <a href="tel:9057349316" class="btn-primary">
+    <div class="hero-actions a5">
+      <a href="tel:9057349316" class="btn btn-gold">
         (905) 734-9316
         <span class="btn-icon" aria-hidden="true">📞</span>
       </a>
-      <div class="rating-inline" aria-label="4.9 stars on Google, 341 reviews">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <strong>4.9</strong>
-        <span>· 341 Google reviews</span>
-      </div>
+      <a href="#menu" class="btn btn-ghost">See the Menu</a>
+    </div>
+
+    <div class="rating-inline a5" aria-label="4.9 stars on Google, 341 reviews">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <strong>4.9</strong>
+      <span>· 341 Google reviews</span>
     </div>
   </div>
-
-  <div class="hero-right" aria-hidden="true">
-    <!-- Photo — double-bezel -->
-    <div class="photo-shell a5">
-      <div class="photo-inner">
-        <img src="evelyn.jpg" alt="Evelyn, founder of Evelyn's Sandwich Factory, Welland ON" loading="eager">
-      </div>
-    </div>
-
-    <!-- Floating badge -->
-    <div class="hero-badge a6">
-      <div class="badge-num">4.9★</div>
-      <div class="badge-label">Google Rating</div>
-      <div class="badge-sub">341 reviews</div>
-    </div>
-
-    <!-- Fresh pill -->
-    <div class="hero-freshpill a7">Fresh Roasted Daily</div>
-  </div>
-</section>
+</header>
 
 <!-- ── The Promise ───────────────────────────── -->
 <section class="promise" aria-label="Our promise">
   <div class="promise-inner">
-
     <div class="reveal">
       <div class="promise-eyebrow">Our Promise</div>
-      <h2 class="promise-title">
-        No cold cuts.<br>
-        <em>Not ever.</em>
-      </h2>
+      <h2 class="promise-title display">No cold cuts. <em>Not ever.</em></h2>
       <p class="promise-body">
         Every morning, a fresh turkey goes into the oven. By the time we open at 11am it's
         carved and ready — real roasted meat, the way it should be. That standard was set
-        on day one and it isn't changing.
+        on day one in 2001, and it isn't changing.
       </p>
     </div>
 
     <div class="stats-grid reveal">
-      <div class="stat-shell">
-        <div class="stat-inner">
-          <div class="stat-num">4.9</div>
-          <div class="stat-label">Stars on Google</div>
-        </div>
+      <div class="stat">
+        <div class="stat-num">4.9</div>
+        <div class="stat-label">Stars on Google</div>
       </div>
-      <div class="stat-shell">
-        <div class="stat-inner">
-          <div class="stat-num">341</div>
-          <div class="stat-label">Happy Reviews</div>
-        </div>
+      <div class="stat">
+        <div class="stat-num">341</div>
+        <div class="stat-label">Happy Reviews</div>
       </div>
-      <div class="stat-shell">
-        <div class="stat-inner">
-          <div class="stat-num">1</div>
-          <div class="stat-label">Turkey Roasted Every Day</div>
-        </div>
+      <div class="stat">
+        <div class="stat-num">2001</div>
+        <div class="stat-label">Serving Welland Since</div>
       </div>
-      <div class="stat-shell">
-        <div class="stat-inner">
-          <div class="stat-num">$0</div>
-          <div class="stat-label">Cold Cuts Used. Ever.</div>
-        </div>
+      <div class="stat">
+        <div class="stat-num">$0</div>
+        <div class="stat-label">Cold Cuts Used. Ever.</div>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- ── Meet Evelyn ───────────────────────────── -->
+<section class="evelyn" id="story" aria-label="Meet Evelyn">
+  <div class="evelyn-inner">
+    <div class="portrait-shell reveal">
+      <div class="portrait-inner">
+        <img src="evelyn-portrait.png" width="1122" height="1402"
+             alt="Evelyn, founder of Evelyn's Sandwich Factory, flexing while holding one of her loaded sandwiches"
+             loading="lazy">
+      </div>
+      <div class="portrait-badge" aria-hidden="true">Est. 2001</div>
+    </div>
+
+    <div class="reveal">
+      <div class="flourish"><span></span><i></i><span></span></div>
+      <div class="section-eyebrow" style="margin-top:1rem;">Meet the Boss</div>
+      <h2 class="evelyn-title display">Evelyn runs a <em>tight kitchen</em>.</h2>
+      <p class="evelyn-body">
+        For more than twenty years, Evelyn has shown up before sunrise to roast the turkey,
+        simmer the soup, and bake the bread that built this place. No corners cut, no cold cuts
+        ordered — just real food made by hand, the way she's always done it.
+      </p>
+      <p class="evelyn-body">
+        Walk in and you'll likely meet her at the counter, sleeves rolled up, building the
+        sandwich you'll be thinking about tomorrow. That's the muscle behind every order.
+      </p>
+      <div class="evelyn-sign">
+        Made with real care.
+        <small>— EVELYN &amp; THE FACTORY CREW</small>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ── Menu ──────────────────────────────────── -->
 <section class="menu" id="menu" aria-label="Our menu">
   <div class="menu-inner">
-
     <div class="section-hd reveal">
-      <div>
-        <div class="section-eyebrow">What We Make</div>
-        <h2 class="section-title">The <em>good stuff</em></h2>
-      </div>
+      <div class="flourish"><span></span><i></i><span></span></div>
+      <div class="section-eyebrow" style="margin-top:1rem;">What We Make</div>
+      <h2 class="section-title display">The <em>good stuff</em></h2>
     </div>
 
     <div class="menu-grid" role="list">
 
-      <!-- Turkey — hero card, dark, large -->
-      <div class="card-shell dark span-7 reveal" role="listitem">
-        <div class="card">
-          <div class="card-emoji" aria-hidden="true">🦃</div>
-          <div class="card-chip">⭐ Most Loved</div>
-          <h3 class="card-name">Fresh Roasted<br>Turkey Sandwich</h3>
-          <p class="card-desc">
-            Carved from a turkey roasted fresh this morning. Loaded onto your choice of bread
-            with crisp vegetables and all the fixings. The one everyone raves about.
-          </p>
-          <div class="card-price">From $10</div>
-        </div>
+      <!-- Turkey — hero card -->
+      <div class="card dark span-7 reveal" role="listitem">
+        <div class="card-emoji" aria-hidden="true">🦃</div>
+        <div class="card-chip">⭐ Most Loved</div>
+        <h3 class="card-name">Fresh Roasted<br>Turkey Sandwich</h3>
+        <p class="card-desc">
+          Carved from a turkey roasted fresh this morning. Loaded onto your choice of bread
+          with crisp vegetables and all the fixings. The one everyone raves about.
+        </p>
+        <div class="card-price">From $10</div>
       </div>
 
       <!-- Roast Beef -->
-      <div class="card-shell light span-5 reveal" role="listitem">
-        <div class="card">
-          <div class="card-emoji" aria-hidden="true">🥩</div>
-          <div class="card-chip">Classic</div>
-          <h3 class="card-name">Roast Beef<br>on Vienna</h3>
-          <p class="card-desc">
-            Tender roast beef piled on Vienna bread, finished with savoury gravy and fresh toppings.
-          </p>
-          <div class="card-price">From $10</div>
-        </div>
+      <div class="card light span-5 reveal" role="listitem">
+        <div class="card-emoji" aria-hidden="true">🥩</div>
+        <div class="card-chip">Classic</div>
+        <h3 class="card-name">Roast Beef<br>on Vienna</h3>
+        <p class="card-desc">
+          Tender roast beef piled on Vienna bread, finished with savoury gravy and fresh toppings.
+        </p>
+        <div class="card-price">From $10</div>
       </div>
 
       <!-- Soup -->
-      <div class="card-shell light span-4 reveal" role="listitem">
-        <div class="card">
-          <div class="card-emoji" aria-hidden="true">🍲</div>
-          <div class="card-chip">Homemade</div>
-          <h3 class="card-name">Split Pea &amp;<br>Ham Soup</h3>
-          <p class="card-desc">
-            Made from scratch every day. Hearty, warming, and the perfect companion.
-          </p>
-          <div class="card-price">Ask inside</div>
-        </div>
+      <div class="card light span-4 reveal" role="listitem">
+        <div class="card-emoji" aria-hidden="true">🍲</div>
+        <div class="card-chip">Homemade</div>
+        <h3 class="card-name">Split Pea &amp;<br>Ham Soup</h3>
+        <p class="card-desc">
+          Made from scratch every day. Hearty, warming, and the perfect companion.
+        </p>
+        <div class="card-price">Ask inside</div>
       </div>
 
       <!-- Custom Sub -->
-      <div class="card-shell light span-8 reveal" role="listitem">
-        <div class="card">
-          <div class="card-emoji" aria-hidden="true">🥖</div>
-          <div class="card-chip">Build Your Own</div>
-          <h3 class="card-name">Custom Sub</h3>
-          <p class="card-desc">
-            Your sub, your way. Choose from our freshly roasted meats, a full lineup of
-            vegetables, condiments, and breads. Every combination works when the
-            ingredients are this good.
-          </p>
-          <div class="card-price">From $10</div>
-        </div>
+      <div class="card light span-8 reveal" role="listitem">
+        <div class="card-emoji" aria-hidden="true">🥖</div>
+        <div class="card-chip">Build Your Own</div>
+        <h3 class="card-name">Custom Sub</h3>
+        <p class="card-desc">
+          Your sub, your way. Choose from our freshly roasted meats, a full lineup of
+          vegetables, condiments, and breads. Every combination works when the
+          ingredients are this good.
+        </p>
+        <div class="card-price">From $10</div>
       </div>
 
     </div>
@@ -1051,8 +895,9 @@
 
     <div class="visit-col">
       <div class="reveal">
-        <div class="section-eyebrow">Find Us</div>
-        <h2 class="section-title" style="margin-bottom: 2rem;">Come <em>say hello</em></h2>
+        <div class="flourish"><span></span><i></i><span></span></div>
+        <div class="section-eyebrow" style="margin-top:1rem;">Find Us</div>
+        <h2 class="section-title display" style="margin-bottom: 2rem;">Come <em>say hello</em></h2>
       </div>
 
       <div class="info-shell reveal">
@@ -1066,14 +911,12 @@
 
       <div class="info-shell reveal">
         <div class="info-label">Phone</div>
-        <div class="info-value">
-          <a href="tel:9057349316">(905) 734-9316</a>
-        </div>
+        <div class="info-value"><a href="tel:9057349316">(905) 734-9316</a></div>
       </div>
 
       <div class="info-shell reveal">
         <div class="info-label">Hours</div>
-        <div class="hours-list" role="list">
+        <div role="list">
           <div class="hours-row" role="listitem">
             <span class="hours-day">Monday – Friday</span>
             <span class="hours-time">11:00 am – 5:00 pm</span>
@@ -1089,21 +932,18 @@
         </div>
       </div>
 
-      <a href="tel:9057349316" class="btn-primary reveal" style="width: fit-content;">
+      <a href="tel:9057349316" class="btn btn-ink reveal" style="width: fit-content;">
         Call to Order
         <span class="btn-icon" aria-hidden="true">↗</span>
       </a>
     </div>
 
-    <!-- Map double-bezel -->
     <div class="map-shell reveal" aria-label="Map to Evelyn's Sandwich Factory">
       <div class="map-inner">
         <iframe
           title="Evelyn's Sandwich Factory — 15 Niagara Street, Welland ON"
           src="https://maps.google.com/maps?q=15+Niagara+Street+Welland+Ontario&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
     </div>
@@ -1116,8 +956,8 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-brand">Evelyn's Sandwich Factory</div>
-        <div class="footer-tag">Fresh roasted turkey every day.<br>No cold cuts. Ever.</div>
+        <img class="footer-logo" src="logo.png" width="1537" height="1023" alt="Evelyn's Sandwich Factory" loading="lazy">
+        <div class="footer-tag">Fresh roasted turkey every day.<br>No cold cuts. Ever. Since 2001.</div>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
@@ -1125,8 +965,8 @@
           <ul role="list">
             <li><a href="https://maps.app.goo.gl/RT1Bx3M2QXT41rYQA" target="_blank" rel="noopener">15 Niagara St, Welland</a></li>
             <li><a href="tel:9057349316">(905) 734-9316</a></li>
-            <li><span style="color:rgba(250,247,240,0.4); font-size:0.83rem;">Mon–Fri 11am–5pm</span></li>
-            <li><span style="color:rgba(250,247,240,0.4); font-size:0.83rem;">Sat 11am–2pm</span></li>
+            <li><span>Mon–Fri 11am–5pm</span></li>
+            <li><span>Sat 11am–2pm</span></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1148,7 +988,7 @@
 </footer>
 
 <script>
-  // Scroll reveal — IntersectionObserver, never window.scroll
+  // Scroll reveal — IntersectionObserver
   const els = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
