@@ -593,6 +593,129 @@
     .card.light .card-price { color: var(--green); }
     .card.dark .card-price { color: var(--gold); }
 
+    /* ── Order card (full printed menu) ─────── */
+    .ordercard {
+      margin-top: 3.25rem;
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      border-radius: 2rem;
+      padding: clamp(1.75rem, 4vw, 3.25rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .ordercard::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -15%;
+      width: 30rem; height: 30rem;
+      background: radial-gradient(circle, rgba(226,169,46,0.10), transparent 65%);
+      pointer-events: none;
+    }
+
+    .oc-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: end;
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+      position: relative;
+    }
+    .oc-title {
+      font-size: clamp(1.85rem, 3vw, 2.8rem);
+      color: var(--ink);
+      margin: 0.65rem 0 1rem;
+    }
+    .oc-title em { font-style: normal; color: var(--tomato); }
+    .oc-lead {
+      font-size: 0.95rem; line-height: 1.7;
+      color: var(--text-soft); max-width: 48ch;
+    }
+
+    .oc-sizes { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: stretch; }
+    .size {
+      background: var(--ink);
+      border-radius: 0.85rem;
+      padding: 0.65rem 0.95rem;
+      display: flex; flex-direction: column; gap: 0.2rem; line-height: 1;
+      border: 1px solid rgba(226,169,46,0.3);
+    }
+    .size b {
+      font-family: var(--display); font-weight: 400;
+      font-size: 0.82rem; letter-spacing: 0.1em; color: var(--cream);
+    }
+    .size span {
+      font-family: var(--display); font-weight: 400;
+      font-size: 1.15rem; color: var(--gold);
+    }
+    .size-toggle {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-soft);
+      border: 1px dashed var(--cream-dark); border-radius: 0.85rem;
+      padding: 0.55rem 0.9rem; display: flex; align-items: center; text-align: center;
+    }
+
+    .oc-group { margin-bottom: 2.75rem; position: relative; }
+    .oc-group:last-child { margin-bottom: 0; }
+    .oc-group-hd {
+      display: flex; align-items: baseline; gap: 0.9rem;
+      flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .oc-group-hd h4 {
+      font-family: var(--display); font-weight: 400; text-transform: uppercase;
+      font-size: clamp(1.1rem, 1.8vw, 1.5rem); color: var(--green); letter-spacing: 0.02em;
+    }
+    .oc-group-hd span { font-size: 0.72rem; color: var(--text-soft); font-weight: 500; }
+
+    .oc-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem 2rem; }
+    .oc-sub h5 {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.9rem;
+    }
+    .oc-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .oc-list.grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem 1.4rem;
+    }
+    .oc-list li {
+      display: flex; align-items: center; gap: 0.65rem;
+      font-size: 0.9rem; color: var(--text-mid);
+    }
+    .oc-tick {
+      width: 0.8rem; height: 0.8rem;
+      border: 1.5px solid var(--gold); border-radius: 0.22rem;
+      flex-shrink: 0;
+    }
+
+    .oc-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
+    .oc-price-row {
+      display: flex; align-items: baseline; gap: 0.7rem;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--cream-dark);
+    }
+    .oc-price-row .pname {
+      display: flex; align-items: center; gap: 0.65rem;
+      font-size: 0.9rem; color: var(--text); font-weight: 500;
+    }
+    .oc-price-row .leader {
+      flex: 1; border-bottom: 1px dotted var(--cream-dark); transform: translateY(-0.25rem);
+    }
+    .oc-price-row .pprice {
+      font-family: var(--display); font-weight: 400;
+      font-size: 1rem; color: var(--green); white-space: nowrap;
+    }
+    .oc-price-row .pprice.ask {
+      font-family: var(--sans); font-weight: 600; font-size: 0.78rem; color: var(--text-soft);
+    }
+
+    .oc-catering {
+      margin-top: 2.5rem; padding-top: 1.75rem;
+      border-top: 1px solid var(--cream-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem 1.5rem; flex-wrap: wrap;
+    }
+    .oc-catering p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.6; }
+    .oc-catering p b { color: var(--green); font-weight: 600; }
+
     /* ── Visit ──────────────────────────────── */
     .visit { padding: 8rem 4.5rem; background: var(--cream); }
     .visit-inner {
@@ -748,6 +871,10 @@
 
       .menu { padding: 5rem 1.5rem; }
       .menu-grid { display: flex; flex-direction: column; }
+      .oc-head { grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
+      .oc-cols { grid-template-columns: 1fr 1fr; }
+      .oc-list.grid { grid-template-columns: 1fr 1fr; }
+      .oc-prices { grid-template-columns: 1fr; gap: 0; }
 
       .reviews { padding: 5rem 1.5rem; }
       .reviews-grid { grid-template-columns: 1fr; }
@@ -953,6 +1080,191 @@
         <div class="card-price">From $10</div>
       </div>
 
+    </div>
+
+    <!-- Full printed menu — the order card -->
+    <div class="ordercard reveal">
+      <div class="oc-head">
+        <div>
+          <div class="section-eyebrow">The Whole Menu</div>
+          <h3 class="oc-title display">The <em>order card</em></h3>
+          <p class="oc-lead">
+            Pick your size, then tick your way down the card — up to four fillings, all the
+            garnishes you like, on fresh-baked bread. Hot or cold, built in front of you.
+          </p>
+        </div>
+        <div class="oc-sizes" aria-label="Sandwich sizes and prices">
+          <div class="size"><b>LRG</b><span>$10.50</span></div>
+          <div class="size"><b>REG</b><span>$9.45</span></div>
+          <div class="size"><b>SML</b><span>$7.75</span></div>
+          <div class="size-toggle">Cold<br>or Hot</div>
+        </div>
+      </div>
+
+      <!-- Create your own sandwich -->
+      <div class="oc-group">
+        <div class="oc-group-hd">
+          <h4>Create Your Own Sandwich</h4>
+          <span>Choose any combination — up to four.</span>
+        </div>
+        <div class="oc-cols">
+          <div class="oc-sub">
+            <h5>Roasted &amp; Cured Meats</h5>
+            <ul class="oc-list" role="list">
+              <li><span class="oc-tick" aria-hidden="true"></span>Oven Roasted Beef</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Oven Roasted Turkey</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Black Forest Ham</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Pastrami</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>German Salami</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Italian Genoa Salami</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Kielbasa</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Meatballs</li>
+            </ul>
+          </div>
+          <div class="oc-sub">
+            <h5>Fresh Salads &amp; More</h5>
+            <ul class="oc-list" role="list">
+              <li><span class="oc-tick" aria-hidden="true"></span>Chicken Salad</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Albacore Tuna Salad</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Wild Sock-eye Salmon Salad</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Egg Salad</li>
+            </ul>
+          </div>
+          <div class="oc-sub">
+            <h5>Cheeses</h5>
+            <ul class="oc-list" role="list">
+              <li><span class="oc-tick" aria-hidden="true"></span>Cheddar Cheese</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Mozzarella</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Swiss Cheese</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Havarti</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Garnish -->
+      <div class="oc-group">
+        <div class="oc-group-hd">
+          <h4>Garnish As You Like It</h4>
+          <span>Load it up — no charge.</span>
+        </div>
+        <div class="oc-cols">
+          <div class="oc-sub">
+            <h5>Spreads &amp; Sauces</h5>
+            <ul class="oc-list" role="list">
+              <li><span class="oc-tick" aria-hidden="true"></span>Butter</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Mayonnaise</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Reg Mustard</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Hot Mustard</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Dijon Mustard</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Honey Mustard</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>BBQ Sauce</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Hot Sauce</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Sub Sauce</li>
+            </ul>
+          </div>
+          <div class="oc-sub">
+            <h5>From the Garden</h5>
+            <ul class="oc-list" role="list">
+              <li><span class="oc-tick" aria-hidden="true"></span>Dill Pickles</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Sweet Pickles</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Sliced Mushrooms</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Black Olives</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Green Olives</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Sliced Tomato</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Alfalfa Sprouts</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Spanish Onions</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Cucumber</li>
+            </ul>
+          </div>
+          <div class="oc-sub">
+            <h5>Peppers &amp; Finishers</h5>
+            <ul class="oc-list" role="list">
+              <li><span class="oc-tick" aria-hidden="true"></span>Green Peppers</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Hot Peppers</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Roasted Red Peppers</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Lettuce</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Homemade Gravy</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Horse Radish</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Sea Salt</li>
+              <li><span class="oc-tick" aria-hidden="true"></span>Black Pepper</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bread -->
+      <div class="oc-group">
+        <div class="oc-group-hd">
+          <h4>Choose Your Bread</h4>
+          <span>Fresh-baked, from the bakery across the street.</span>
+        </div>
+        <ul class="oc-list grid" role="list">
+          <li><span class="oc-tick" aria-hidden="true"></span>Italian Kaiser</li>
+          <li><span class="oc-tick" aria-hidden="true"></span>Dark Rye</li>
+          <li><span class="oc-tick" aria-hidden="true"></span>Vienna Bread</li>
+          <li><span class="oc-tick" aria-hidden="true"></span>Whole Wheat Bun</li>
+          <li><span class="oc-tick" aria-hidden="true"></span>Calabrese</li>
+          <li><span class="oc-tick" aria-hidden="true"></span>Italian Bread</li>
+        </ul>
+      </div>
+
+      <!-- Soup, salads, drinks -->
+      <div class="oc-group">
+        <div class="oc-group-hd">
+          <h4>Soup, Salads, Drinks &amp; Such</h4>
+        </div>
+        <div class="oc-prices">
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Cup of Soup</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$4.50</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Bowl of Soup</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$6.00</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Salad of the Day</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice ask">Ask for today's</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Garden Salad</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$7.25&nbsp;/&nbsp;$8.50</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Julienne</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$8.50&nbsp;/&nbsp;$10.75</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Roll or Bread</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$0.75</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Chocolate Milk</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$1.75&nbsp;/&nbsp;$3.00</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>White Milk</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$1.75&nbsp;/&nbsp;$3.00</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Bottled Water</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$1.25</span>
+          </div>
+          <div class="oc-price-row">
+            <span class="pname"><span class="oc-tick" aria-hidden="true"></span>Pop</span>
+            <span class="leader" aria-hidden="true"></span><span class="pprice">$1.50</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="oc-catering">
+        <p>Feeding a crowd? <b>Catering &amp; party platters</b> made to order.</p>
+        <a href="tel:9057349316" class="btn btn-gold">
+          Catering · (905) 734-9316
+          <span class="btn-icon" aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
