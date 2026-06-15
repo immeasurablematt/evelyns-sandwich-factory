@@ -504,6 +504,27 @@
       margin-top: 0.3rem;
     }
 
+    /* Owners photo — the team behind the counter */
+    .team-photo { max-width: 1180px; margin: 4.5rem auto 0; }
+    .team-frame {
+      background: linear-gradient(160deg, var(--cream-mid), var(--cream-dark));
+      border: 1px solid var(--gold);
+      border-radius: 2.25rem;
+      padding: 0.5rem;
+      box-shadow: 0 30px 70px -28px rgba(31,61,43,0.4);
+    }
+    .team-frame-inner {
+      border-radius: calc(2.25rem - 0.35rem);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+    .team-frame-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-cap {
+      text-align: center; margin-top: 1.3rem;
+      font-size: 0.82rem; letter-spacing: 0.03em; color: var(--text-soft);
+    }
+    .team-cap b { color: var(--green); font-weight: 600; }
+
     /* ── Menu ───────────────────────────────── */
     .menu { padding: 8rem 4.5rem; background: var(--cream-mid); }
     .menu-inner { max-width: 1240px; margin: 0 auto; }
@@ -868,6 +889,7 @@
       .evelyn { padding: 5rem 1.5rem; }
       .evelyn-inner { grid-template-columns: 1fr; gap: 3.5rem; }
       .portrait-shell { max-width: 360px; margin: 0 auto; }
+      .team-photo { margin-top: 3rem; }
 
       .menu { padding: 5rem 1.5rem; }
       .menu-grid { display: flex; flex-direction: column; }
@@ -980,8 +1002,8 @@
   </div>
 </section>
 
-<!-- ── Meet Evelyn ───────────────────────────── -->
-<section class="evelyn" id="story" aria-label="Meet Evelyn">
+<!-- ── Meet Evelyn & Nikita ──────────────────── -->
+<section class="evelyn" id="story" aria-label="Meet Evelyn and Nikita">
   <div class="evelyn-inner">
     <div class="portrait-shell reveal">
       <div class="portrait-inner">
@@ -994,23 +1016,34 @@
 
     <div class="reveal">
       <div class="flourish"><span></span><i></i><span></span></div>
-      <div class="section-eyebrow" style="margin-top:1rem;">Meet the Boss</div>
-      <h2 class="evelyn-title display">Evelyn runs a <em>tight kitchen</em>.</h2>
+      <div class="section-eyebrow" style="margin-top:1rem;">Meet the Owners</div>
+      <h2 class="evelyn-title display">Evelyn &amp; Nikita run a <em>tight kitchen</em>.</h2>
       <p class="evelyn-body">
         For more than twenty years, Evelyn has shown up before sunrise to roast the turkey,
         simmer the soup, and bake the bread that built this place. No corners cut, no cold cuts
         ordered — just real food made by hand, the way she's always done it.
       </p>
       <p class="evelyn-body">
-        Walk in and you'll likely meet her at the counter, sleeves rolled up, building the
-        sandwich you'll be thinking about tomorrow. That's the muscle behind every order.
+        Today she runs the counter alongside Nikita. Walk in and you'll likely find the two of
+        them at the counter, sleeves rolled up, building the sandwich you'll be thinking about
+        tomorrow. That's the muscle behind every order.
       </p>
       <div class="evelyn-sign">
         Made with real care.
-        <small>— EVELYN &amp; THE FACTORY CREW</small>
+        <small>— EVELYN, NIKITA &amp; THE FACTORY CREW</small>
       </div>
     </div>
   </div>
+
+  <figure class="team-photo reveal">
+    <div class="team-frame">
+      <div class="team-frame-inner">
+        <img src="owners.jpg" alt="Evelyn and Nikita behind the counter at Evelyn's Sandwich Factory in Welland"
+             loading="lazy">
+      </div>
+    </div>
+    <figcaption class="team-cap"><b>Evelyn &amp; Nikita</b> — behind the counter in downtown Welland.</figcaption>
+  </figure>
 </section>
 
 <!-- ── Menu ──────────────────────────────────── -->
