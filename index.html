@@ -776,6 +776,50 @@
     }
     .menu-note b { color: var(--green); font-weight: 600; }
 
+    /* ── Gallery ────────────────────────────── */
+    .gallery { padding: 8rem 4.5rem; background: var(--cream); }
+    .gallery-inner { max-width: 1240px; margin: 0 auto; }
+    .gallery-hd { text-align: center; margin-bottom: 3.5rem; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .shot {
+      margin: 0;
+      position: relative;
+      border-radius: 1.75rem;
+      overflow: hidden;
+      border: 1px solid var(--cream-dark);
+      background: var(--cream-mid);
+      box-shadow: 0 20px 50px -28px rgba(31,61,43,0.3);
+      transition: transform 500ms var(--ease), box-shadow 500ms var(--ease), border-color 500ms var(--ease);
+    }
+    .shot:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: 0 30px 62px -24px rgba(31,61,43,0.42);
+    }
+    .shot img {
+      width: 100%; height: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: transform 760ms var(--ease);
+    }
+    .shot:hover img { transform: scale(1.055); }
+    .shot figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 3rem 1.6rem 1.3rem;
+      background: linear-gradient(to top, rgba(21,18,12,0.86) 8%, rgba(21,18,12,0.45) 55%, transparent);
+      color: var(--cream);
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.005em;
+    }
+
     /* ── Reviews ────────────────────────────── */
     .reviews { background: var(--ink); color: var(--cream); padding: 7.5rem 4.5rem; position: relative; overflow: hidden; }
     .reviews::before {
@@ -906,6 +950,7 @@
     </a>
     <ul class="nav-links" role="list">
       <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Photos</a></li>
       <li><a href="#story">Our Story</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#visit">Visit</a></li>
@@ -1275,6 +1320,47 @@
           <span class="btn-icon" aria-hidden="true">↗</span>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Gallery ───────────────────────────────── -->
+<section class="gallery" id="gallery" aria-label="Sandwiches fresh from the counter">
+  <div class="gallery-inner">
+    <div class="gallery-hd reveal">
+      <div class="flourish center"><span></span><i></i><span></span></div>
+      <div class="section-eyebrow" style="margin-top:1rem;">Straight From the Counter</div>
+      <h2 class="section-title display">Built fresh, <em>every time</em></h2>
+    </div>
+
+    <div class="gallery-grid">
+      <figure class="shot reveal">
+        <img src="sandwich-1.jpg" width="1600" height="900"
+             alt="Stacked sandwich on fresh-baked bread with real roasted meat, cheddar, spinach and tomato"
+             loading="lazy">
+        <figcaption>Stacked high with real roasted meat, cheddar and crisp greens.</figcaption>
+      </figure>
+
+      <figure class="shot reveal">
+        <img src="sandwich-2.jpg" width="1600" height="900"
+             alt="A loaded wrap rolled to order with seasoned filling, red cabbage and lettuce"
+             loading="lazy">
+        <figcaption>Loaded wraps, rolled fresh to order.</figcaption>
+      </figure>
+
+      <figure class="shot reveal">
+        <img src="sandwich-3.jpg" width="1080" height="1350"
+             alt="Italian-style sandwich on white bread with cured meats, fresh mozzarella and lettuce"
+             loading="lazy">
+        <figcaption>Layers of cured meats, fresh mozzarella and pickled crunch.</figcaption>
+      </figure>
+
+      <figure class="shot reveal">
+        <img src="sandwich-4.jpg" width="1080" height="1350"
+             alt="Piled-high veggie sub on a fresh-baked kaiser roll with avocado, lettuce, tomato and cheese"
+             loading="lazy">
+        <figcaption>Piled-high veggie sub on a fresh-baked kaiser.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
